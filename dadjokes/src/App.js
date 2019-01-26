@@ -4,7 +4,8 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.css";
 import { NavLink, Route } from "react-router-dom";
 import Signup from "./Authenticate/Signup";
-
+import Signin from "./Authenticate/Signin"
+import Jokes from "./Jokes/Jokes";
 // Home Defined
 const Home = props => {
   return (
@@ -27,7 +28,8 @@ class App extends Component {
                 style={{ textDecoration: "none", color: "black" }}
                 exact
               >
-                Home <br />
+                Home
+                &nbsp;|&nbsp;
               </NavLink>
             </NavItem>
             <NavItem>
@@ -36,7 +38,8 @@ class App extends Component {
                 style={{ textDecoration: "none", color: "black" }}
                 exact
               >
-                Sign Up <br />
+                Sign Up
+                &nbsp;|&nbsp;
               </NavLink>
             </NavItem>
             <NavItem>
@@ -55,7 +58,9 @@ class App extends Component {
         {/* Routes To the paths */}
         <Route path="/" component={Home} exact />
         <Route path="/signup" component={Signup} exact />
-        {/* <Route path='/signin' component={Signin} exact/> */}
+        <Route path='/signin' component={Signin} exact />
+        <Route path='/jokes' component={Jokes} exact />
+
       </div>
     );
   }

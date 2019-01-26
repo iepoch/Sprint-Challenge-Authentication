@@ -12,3 +12,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.form_signup {
+   width: 500px;
+   margin: 0 auto;
+   margin-top:230px;
+
+}
