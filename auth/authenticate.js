@@ -30,11 +30,11 @@ function authenticate(req, res, next) {
 }
 
 function generateToken(user) {
-  const payload +{
+  const payload ={
     username: user.username
   }
   const options = {
-    expiresIn = '1hr'
+    expiresIn: '1hr'
   }
   return jwt.sign(payload, jwtKey, options)
 }
