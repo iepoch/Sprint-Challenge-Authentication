@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import { Navbar, Nav, NavItem, NavbarBrand } from "reactstrap";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.css";
-import { NavLink, Route } from "react-router-dom";
+import { NavLink, Route, Link } from "react-router-dom";
 import Signup from "./Authenticate/Signup";
-import Signin from "./Authenticate/Signin"
+import Signin from "./Authenticate/Signin";
 import Jokes from "./Jokes/Jokes";
 // Home Defined
 const Home = props => {
@@ -16,6 +16,9 @@ const Home = props => {
 };
 
 class App extends Component {
+  signout = () => {
+    localStorage.removeItem("jwt");
+  };
   render() {
     return (
       <div>
@@ -28,8 +31,7 @@ class App extends Component {
                 style={{ textDecoration: "none", color: "black" }}
                 exact
               >
-                Home
-                &nbsp;|&nbsp;
+                Home &nbsp;|&nbsp;
               </NavLink>
             </NavItem>
             <NavItem>
@@ -38,8 +40,7 @@ class App extends Component {
                 style={{ textDecoration: "none", color: "black" }}
                 exact
               >
-                Sign Up
-                &nbsp;|&nbsp;
+                Sign Up &nbsp;|&nbsp;
               </NavLink>
             </NavItem>
             <NavItem>
@@ -48,9 +49,19 @@ class App extends Component {
                 style={{ textDecoration: "none", color: "black" }}
                 exact
               >
-                {" "}
-                Sign In
+                Sign In &nbsp;|&nbsp;
               </NavLink>
+            </NavItem>
+            <NavItem>
+              <Link
+                to="/"
+                onClick={this.signout}
+                style={{ textDecoration: "none", color: "black" }}
+                exact
+              >
+                {" "}
+                Sign Out
+              </Link>
             </NavItem>
           </Nav>
         </Navbar>
@@ -58,9 +69,8 @@ class App extends Component {
         {/* Routes To the paths */}
         <Route path="/" component={Home} exact />
         <Route path="/signup" component={Signup} exact />
-        <Route path='/signin' component={Signin} exact />
-        <Route path='/jokes' component={Jokes} exact />
-
+        <Route path="/signin" component={Signin} exact />
+        <Route path="/jokes" component={Jokes} exact />
       </div>
     );
   }
